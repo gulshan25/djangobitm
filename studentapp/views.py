@@ -6,6 +6,7 @@ from django.core.paginator import Paginator
 from django.contrib import messages
 
 
+
 # Create your views here.
 
 def home(request):

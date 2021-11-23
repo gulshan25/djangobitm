@@ -35,7 +35,7 @@
                         <td>
                           <a href="{% url 'view' stud.id %}" class="btn btn-info" title="view"><i class="fa fa-eye fa-2x"></i></a>
                           <a href="{% url 'edit' stud.id %}" class="btn btn-warning" title="edit"><i class="fa fa-edit fa-2x"></i></a>
-                          <a href="{% url 'delete' stud.id %}" class="btn btn-danger" title="delete"><i class="fa fa-trash-restore-alt fa-2x"></i></a>
+                          <a href="{% url 'delete' stud.id %}" onclick="return confirm('Are you sure, you want to delete record?');" class="btn btn-danger" title="delete"><i class="fa fa-trash-restore-alt fa-2x"></i></a>
                         </td>
                     </tr>
                         
