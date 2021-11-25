@@ -1,10 +1,11 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render, redirect
 from django.core.mail import EmailMessage
 from django.conf import settings
 from django.contrib import messages
 from .forms import EmailForm
-
-
+from studentapp.models import Student
+import csv
 # Create your views here.
 
 def sent_mail(request):
@@ -31,3 +32,17 @@ def sent_mail(request):
             form = EmailForm()
             # context = {'form':form}    
     return render(request,'email/emailform.html',{'form':form})
+
+def export_csv(request):
+    response = HttpResponse(content_type = 'text/csv')
+    response['Content-Disposition'] = 'attachment;filename= "student.csv"'
+    
+    writer = csv.writer(response)
+    writer.writerow(['Id', 'Student Name', 'Email Address', 'Birth Date', 'Gender']) 
+    students = Student.objects.all().values_list('id', 'name', 'email', 'dob', 'gender')
+    
+    
+    for std in students:
+        writer.writerow(std)
+    
+    return response
