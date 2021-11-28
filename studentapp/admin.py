@@ -22,6 +22,5 @@ class StudentAdmin(ImportExportMixin,admin.ModelAdmin):
     
     def birth_date(self,obj):
         return obj.dob.strftime('%Y-%m-%d')
-        
-    
+           
 admin.site.register(Student, StudentAdmin)
