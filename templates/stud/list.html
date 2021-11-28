@@ -6,7 +6,13 @@
 <div>
   <a href="{% url 'create' %}" class="btn btn-primary">Add New Student</a>
 </div>
-        
+<br>  
+<button class="btn btn-primary" onclick="PrintDiv('report');"> Print Report</button>
+   
+    <div id="report">
+
+     </div> 
+     <br>
         <div>
             <h1>List of All Students</h1>
             <hr>
@@ -20,7 +26,9 @@
                         <td>Email Address</td>
                         <td>Date of Birth</td>
                         <td>Gender</td>
+                        {% if user.is_authenticated and user.is_staff %}
                         <td>Actions</td>
+                        {% endif %}
                     </tr>
                 </thead>
                 <tbody>
@@ -36,10 +44,10 @@
                           <a href="{% url 'view' stud.id %}" class="btn btn-info" title="view"><i class="fa fa-eye fa-2x"></i></a>
                           <a href="{% url 'edit' stud.id %}" class="btn btn-warning" title="edit"><i class="fa fa-edit fa-2x"></i></a>
                          
-                          {% if user.is_authenticated %}
+                          
                            
                           <a href="{% url 'delete' stud.id %}" onclick="return confirm('Are you sure, you want to delete record?');" class="btn btn-danger" title="delete"><i class="fa fa-trash-restore-alt fa-2x"></i></a>
-                          {% endif %}
+                          
                         </td>
                     </tr>
                         
@@ -52,6 +60,8 @@
                 </tfoot>
             </table>
            <hr>
+
+          
            
            
            <!-- Paginigation starts -->

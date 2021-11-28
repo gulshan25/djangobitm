@@ -69,6 +69,14 @@
                 endDate: "-0d"
             });
         });
+
+        function PrintDiv(divname){
+            var presentcontent = document.getElementById(divname).innerHTML;
+            var oldcontent = document.body.innerHTML;
+            document.body.innerHTML = presentcontent;
+            window.print();
+            document.body.innerHTML = oldcontent;
+        }
     </script>
    {% block javascript %}
        

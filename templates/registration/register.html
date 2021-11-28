@@ -5,7 +5,9 @@
 
     <form action="" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+        {% load crispy_forms_tags %}
+                {{ form | crispy }}
+        <br>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     
