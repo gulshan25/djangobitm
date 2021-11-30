@@ -3,7 +3,7 @@
 
 {% block content %}
 
-    <form action="" method="POST" class="col-sm-5">
+    <form action="" method="POST" class="col-sm-4">
         {% csrf_token %}
         {% load crispy_forms_tags %}
                 {{ form | crispy }}
