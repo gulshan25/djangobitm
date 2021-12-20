@@ -10,6 +10,8 @@ import csv
 
 # Create your views here.
 
+# function based view
+
 def home(request):
     context = {'title':'Home'}
     return render(request,'stud/home.html',context)

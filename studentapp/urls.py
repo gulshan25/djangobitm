@@ -1,6 +1,8 @@
 from django.urls import path
 from studentapp import views
 
+# function based view
+
 urlpatterns = [
     path('list/', views.list,name='list'),
     path('home/', views.home,name='home'),
